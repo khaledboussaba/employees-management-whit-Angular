@@ -1,0 +1,36 @@
+<p>employees works!</p>
+
+
+<div *ngIf="employees.length > 0; else elseBlock">
+        <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">firstName</th>
+                    <th scope="col">lastName</th>
+                    <th scope="col">email</th>
+                    <th scope="col">country</th>
+                    <th scope="col">city</th>
+                    <th scope="col">phone</th>
+                    <th scope="col">salary</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let employee of employees">
+                    <td>{{ employee.$key }}</td>
+                    <td>{{ employee.firstName }}</td>
+                    <td>{{ employee.lastName }}</td>
+                    <td>{{ employee.email }}</td>
+                    <td>{{ employee.country }}</td>
+                    <td>{{ employee.city }}</td>
+                    <td>{{ employee.phone }}</td>
+                    <td>{{ employee.salary }}</td>
+                    <td><button type="button" class="btn btn-primary">more infos</button></td>
+                  </tr>
+                </tbody>
+        </table>
+</div>
+<ng-template #elseBlock><h2>Oups ! Empty Database ...</h2></ng-template>
+
+
+
