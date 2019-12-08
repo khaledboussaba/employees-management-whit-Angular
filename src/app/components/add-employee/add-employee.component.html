@@ -1,9 +1,83 @@
+<h3><i class="fa fa-plus"></i> Add emloyee</h3>
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-9">
+        <div class="container">
+            <form novalidate #fo="ngForm" (ngSubmit)="addEmployeeSubmit(fo)">
+                <div class="form-group">
+                    <label for="firstName">First name</label>
+                    <input type="text" class="form-control" name="firstName" [(ngModel)]="employee.firstName"
+                        #employeefirstName="ngModel" required minlength="4">
+                    <div *ngIf="employeefirstName.errors?.required && employeefirstName.touched" class="alert alert-danger">
+                        First name is required
+                    </div>
+                    <div *ngIf="employeefirstName.errors?.minlength && employeefirstName.touched" class="alert alert-danger">
+                        Need at least 4 chars
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Last name</label>
+                    <input type="text" class="form-control" name="lastName" [(ngModel)]="employee.lastName"
+                        #employeelastName="ngModel" required minlength="4">
+                    <div *ngIf="employeelastName.errors?.required && employeelastName.touched" class="alert alert-danger">
+                        Last name is required
+                    </div>
+                    <div *ngIf="employeelastName.errors?.minlength && employeelastName.touched" class="alert alert-danger">
+                        Need at least 4 chars
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" name="email" [(ngModel)]="employee.email"
+                        #employeeemail="ngModel" required>
+                    <div *ngIf="employeeemail.errors?.required && employeeemail.touched" class="alert alert-danger">
+                        Email name is required
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input type="text" class="form-control" name="country" [(ngModel)]="employee.country"
+                        #employeecountry="ngModel" required>
+                    <div *ngIf="employeecountry.errors?.required && employeecountry.touched" class="alert alert-danger">
+                        Country name is required
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" name="city" [(ngModel)]="employee.city" #employeecity="ngModel"
+                        required>
+                    <div *ngIf="employeecity.errors?.required && employeecity.touched" class="alert alert-danger">
+                        City name is required
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" class="form-control" name="phone" [(ngModel)]="employee.phone"
+                        #employeephone="ngModel" required minlength="12">
+                    <div *ngIf="employeephone.errors?.required && employeephone.touched" class="alert alert-danger">
+                        Phone is required
+                    </div>
+                    <div *ngIf="employeephone.errors?.minlength && employeephone.touched" class="alert alert-danger">
+                        Need at least 12 chars
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="salary">Salary</label>
+                    <input type="text" class="form-control" name="salary" [(ngModel)]="employee.salary"
+                        #employeesalary="ngModel" [disabled]="disableSalary">
+
+                </div>
+
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-sm-3">
         <a href="#" routerLink="/" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i> back to dashboard</a>
     </div>
-    <div class="col-sm-6">
-        <p>add-employee works!</p>
-    </div>
 </div>
-

@@ -22,6 +22,8 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { EmployeesComponent } from './components/employees/employees.component';
 
+import { FormsModule } from '@angular/forms';
+
 
 export const firebaseConfig  = {
     apiKey: "AIzaSyCg7rVMwu-IE13wyUIxHijFJNZ0hEVZVyA",
@@ -56,6 +58,7 @@ const appRoutes:Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(appRoutes)
   ],

@@ -6,7 +6,7 @@ export interface Employee {
     email? : string;
     country? : string;
     city? : string;
-    phone? : string;
-    salary? : string;
+    phone? : number;
+    salary? : number;
 
 }
