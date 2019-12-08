@@ -24,6 +24,8 @@ import { EmployeesComponent } from './components/employees/employees.component';
 
 import { FormsModule } from '@angular/forms';
 
+import { FlashMessagesModule } from 'angular2-flash-messages';
+
 
 export const firebaseConfig  = {
     apiKey: "AIzaSyCg7rVMwu-IE13wyUIxHijFJNZ0hEVZVyA",
@@ -60,7 +62,8 @@ const appRoutes:Routes = [
     BrowserModule,
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FlashMessagesModule.forRoot()
   ],
   providers: [
     AngularFireDatabase,

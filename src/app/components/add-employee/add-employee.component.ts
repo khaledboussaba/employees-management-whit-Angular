@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { Employee } from '../../Employee';
 
+import { FlashMessagesService } from 'angular2-flash-messages';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-add-employee',
   templateUrl: './add-employee.component.html',
@@ -21,14 +24,16 @@ export class AddEmployeeComponent implements OnInit {
 
   disableSalary: boolean = true;
 
-  constructor() { }
+  constructor(public flashMessagesService: FlashMessagesService, public router: Router) { }
 
   ngOnInit() {
   }
 
   addEmployeeSubmit({ value, valid }: { value: Employee, valid: boolean }) {
     if (!valid) {
-      console.log("not correct data");
+      //console.log("not correct data");
+      this.flashMessagesService.show('Please write correct informations for new employee', {cssClass:'alert-danger', timeout: 6000});
+      this.router.navigate(['add-employee']);
     } else {
       console.log(this.employee);
     }
