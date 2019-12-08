@@ -1,4 +1,19 @@
-<div *ngIf="employees.length > 0; else elseBlock">
+<div class="row">
+  <div class="col-sm-6">
+    <h2>
+      <i class="fa fa-users"></i>
+      Total employees : {{totalEmployees}}
+    </h2>
+  </div>
+  <div class="col-sm-6">
+    <h2>
+      <i class="fa fa-money"></i> 
+      Total salary : {{totalSalaryEmployees | currency:"USD":true}}
+    </h2>
+  </div>
+</div>
+
+<div *ngIf="employees?.length > 0; else elseBlock">
         <table class="table">
                 <thead>
                   <tr>
@@ -21,7 +36,7 @@
                     <td>{{ employee.country }}</td>
                     <td>{{ employee.city }}</td>
                     <td>{{ employee.phone }}</td>
-                    <td>{{ employee.salary }}</td>
+                    <td>{{ employee.salary | currency:"USD":true }}</td>
                     <td><a href="#" class="btn btn-primary">more <i class="fa fa-info-circle"></i></a></td>
                   </tr>
                 </tbody>
